@@ -28,9 +28,15 @@ namespace Store
         {
 
         }
-        public void increaseBalance()
+        public void increaseBalance(int target_P_ID, int balance)
         {
-
+            foreach(Product x in allProducts)
+            {
+                if(x.P_ID == target_P_ID)
+                {
+                    x.Balance = x.Balance + balance;
+                }
+            }
         }
         public void decreaseBalance()
         {

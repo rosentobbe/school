@@ -14,9 +14,8 @@ namespace Store
     {
         int MAX_LENGTH = 25;
         int productMax = 999999999;
-        string activeTab;
         int nextID = 1;
-        static String Storage_format = "{0,-12} {1,-30} {2,-20} {3,-10}";
+        static String Storage_format = "{0,-12} {1,-30} {2,-22} {3,-10}";
 
         // Register
         Register registerObject = new Register();
@@ -33,37 +32,43 @@ namespace Store
 
             //For testing
             textField_Name.Text  = "This is test Procudt Name";
-            number_Balance.Value = 999999999;
-            number_Price.Value   = 999999999;
+            number_Balance.Value = 100;
+            number_Price.Value   = 100;
 
 
 
         }
-        public void addToCart()
+        public void addToCart_Click(object sender, EventArgs e)
         {
-
+            int index = storage_ListBox.SelectedIndex;
+            if (index > -1)
+            {
+                Product temp_product = storageObject.getAvailableProducts().ElementAt(index);
+                if (temp_product.Balance >= register_amount_number.Value)
+                {
+                    registerObject.add(temp_product.P_ID, temp_product.Name, temp_product.Price, (int)register_amount_number.Value); // HÄR ÄR DU!
+                    update_All_Lists();
+                }
+            }
         }
-        public void clearCart()
-        {
 
-        }
-        public void removeItemCart()
-        {
-
-        }
         public void isCartEmpty()
         {
-
+            // TODO
         }
         public void saveStorage()
         {
-
+            // TODO
         }
 
         private void add_product_button_Click(object sender, EventArgs e)
         {
             if (textField_Name.Text == "")
                 textField_Name.BackColor = Color.Red;
+            else if (textField_Name.Text.Contains(","))
+            {
+                MessageBox.Show("Product names can not contain ','");
+            }
             else
             {
                 storageObject.addNewProduct(textField_Name.Text, nextID, number_Price.Value, (int)number_Balance.Value);
@@ -100,10 +105,13 @@ namespace Store
         private void update_All_Lists()
         {
             storage_ListBox.Items.Clear();
+            cartList.Items.Clear();
+            
             foreach (Product x in storageObject.getAvailableProducts())
             {                     
                 storage_ListBox.Items.Add(String.Format(Storage_format, x.P_ID, x.Name, x.Price, x.Balance));
             }
+
         }
 
         private void textField_Name_TextChanged(object sender, EventArgs e)
@@ -121,24 +129,44 @@ namespace Store
                     remove_product_from_lists(selectedIndex);
                 }
                 else
+                {
                     if (MessageBox.Show("Balance > 0\nDo you still want to remove?", "Balance > 0", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    remove_product_from_lists(selectedIndex);
+                        remove_product_from_lists(selectedIndex);
+                }
             }
         }
 
         private void place_order_button_Click(object sender, EventArgs e)
         {
-            List<Product> temp_product_list = storageObject.getAvailableProducts();
-            Product temp_product = temp_product_list.ElementAt(storage_ListBox.SelectedIndex);
-            int order_amount = (int)order_amount_numeric.Value;
-            if(order_amount + temp_product.Balance > productMax)
+            if (storage_ListBox.SelectedIndex != -1)
             {
-                MessageBox.Show("Our storage can only hold an extra " + (productMax - temp_product.Balance).ToString());
+                List<Product> temp_product_list = storageObject.getAvailableProducts();
+                Product temp_product = temp_product_list.ElementAt(storage_ListBox.SelectedIndex);
+                int order_amount = (int)order_amount_numeric.Value;
+                if (order_amount + temp_product.Balance > productMax)
+                {
+                    MessageBox.Show("Our storage can only hold an extra " + (productMax - temp_product.Balance).ToString());
+                }
+                else
+                {
+                    storageObject.increaseBalance(temp_product.P_ID, order_amount);
+                    update_All_Lists();
+                }
             }
-            else
-            {
-                //// HÄR ÄR DU! Fixa så att värdet updateras och läggs till på rätt sätt i listan.
-            }
+        }
+
+        private void removeItemCart_click(object sender, EventArgs e)
+        {
+            int selectedIndex = cartList.SelectedIndex;
+            registerObject.remove(selectedIndex);
+            cartList.Items.RemoveAt(selectedIndex);
+            update_All_Lists();
+            // Fixa här! Kanske bättre att börja i Add?
+        }
+
+        private void clear_cart_button_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void storage_ListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -166,7 +194,6 @@ namespace Store
                 }
             }
         }
-
 
     }
 }

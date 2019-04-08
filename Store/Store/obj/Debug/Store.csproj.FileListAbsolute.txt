@@ -8,3 +8,13 @@ C:\Users\Rosen\source\repos\Store\Store\obj\Debug\Store.csproj.CoreCompileInputs
 C:\Users\Rosen\source\repos\Store\Store\obj\Debug\Store.exe
 C:\Users\Rosen\source\repos\Store\Store\obj\Debug\Store.pdb
 C:\Users\Rosen\source\repos\Store\Store\obj\Debug\Store.MainWindow.resources
+C:\Users\tobbe\Documents\GitHub\school\Store\Store\obj\Debug\Store.csprojAssemblyReference.cache
+C:\Users\tobbe\Documents\GitHub\school\Store\Store\obj\Debug\Store.MainWindow.resources
+C:\Users\tobbe\Documents\GitHub\school\Store\Store\obj\Debug\Store.Properties.Resources.resources
+C:\Users\tobbe\Documents\GitHub\school\Store\Store\obj\Debug\Store.csproj.GenerateResource.cache
+C:\Users\tobbe\Documents\GitHub\school\Store\Store\obj\Debug\Store.csproj.CoreCompileInputs.cache
+C:\Users\tobbe\Documents\GitHub\school\Store\Store\obj\Debug\Store.exe
+C:\Users\tobbe\Documents\GitHub\school\Store\Store\obj\Debug\Store.pdb
+C:\Users\tobbe\Documents\GitHub\school\Store\Store\bin\Debug\Store.exe.config
+C:\Users\tobbe\Documents\GitHub\school\Store\Store\bin\Debug\Store.exe
+C:\Users\tobbe\Documents\GitHub\school\Store\Store\bin\Debug\Store.pdb

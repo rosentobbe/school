@@ -29,6 +29,10 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.registerTab = new System.Windows.Forms.TabPage();
+            this.add_selected_to_cart = new System.Windows.Forms.Button();
+            this.register_remItem_button = new System.Windows.Forms.Button();
+            this.clear_cart_button = new System.Windows.Forms.Button();
+            this.pay_button = new System.Windows.Forms.Button();
             this.cartList = new System.Windows.Forms.ListBox();
             this.cartLabel = new System.Windows.Forms.Label();
             this.sumLabel = new System.Windows.Forms.Label();
@@ -59,6 +63,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.remove_product_label = new System.Windows.Forms.Label();
             this.restockTab = new System.Windows.Forms.TabPage();
+            this.place_order_button = new System.Windows.Forms.Button();
+            this.order_amount_numeric = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.order_balance_textbox = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.order_id_textbox = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.order_product_textbox = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.storage_ListBox = new System.Windows.Forms.ListBox();
@@ -67,18 +81,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.order_balance_textbox = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.order_id_textbox = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.order_product_textbox = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.order_amount_numeric = new System.Windows.Forms.NumericUpDown();
-            this.place_order_button = new System.Windows.Forms.Button();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainWindowBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label18 = new System.Windows.Forms.Label();
+            this.register_amount_number = new System.Windows.Forms.NumericUpDown();
             this.tabControl1.SuspendLayout();
             this.registerTab.SuspendLayout();
             this.storageTab.SuspendLayout();
@@ -91,6 +97,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.order_amount_numeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainWindowBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.register_amount_number)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -106,6 +113,12 @@
             // registerTab
             // 
             this.registerTab.BackColor = System.Drawing.Color.Transparent;
+            this.registerTab.Controls.Add(this.register_amount_number);
+            this.registerTab.Controls.Add(this.label18);
+            this.registerTab.Controls.Add(this.add_selected_to_cart);
+            this.registerTab.Controls.Add(this.register_remItem_button);
+            this.registerTab.Controls.Add(this.clear_cart_button);
+            this.registerTab.Controls.Add(this.pay_button);
             this.registerTab.Controls.Add(this.cartList);
             this.registerTab.Controls.Add(this.cartLabel);
             this.registerTab.Controls.Add(this.sumLabel);
@@ -116,6 +129,45 @@
             this.registerTab.Size = new System.Drawing.Size(426, 730);
             this.registerTab.TabIndex = 0;
             this.registerTab.Text = "Register";
+            // 
+            // add_selected_to_cart
+            // 
+            this.add_selected_to_cart.Location = new System.Drawing.Point(340, 308);
+            this.add_selected_to_cart.Name = "add_selected_to_cart";
+            this.add_selected_to_cart.Size = new System.Drawing.Size(75, 80);
+            this.add_selected_to_cart.TabIndex = 10;
+            this.add_selected_to_cart.Text = "Add Selected Item To Cart";
+            this.add_selected_to_cart.UseVisualStyleBackColor = true;
+            this.add_selected_to_cart.Click += new System.EventHandler(this.addToCart_Click);
+            // 
+            // register_remItem_button
+            // 
+            this.register_remItem_button.Location = new System.Drawing.Point(340, 50);
+            this.register_remItem_button.Name = "register_remItem_button";
+            this.register_remItem_button.Size = new System.Drawing.Size(75, 80);
+            this.register_remItem_button.TabIndex = 9;
+            this.register_remItem_button.Text = "Remove Selected Item From Cart";
+            this.register_remItem_button.UseVisualStyleBackColor = true;
+            this.register_remItem_button.Click += new System.EventHandler(this.removeItemCart_click);
+            // 
+            // clear_cart_button
+            // 
+            this.clear_cart_button.Location = new System.Drawing.Point(340, 6);
+            this.clear_cart_button.Name = "clear_cart_button";
+            this.clear_cart_button.Size = new System.Drawing.Size(75, 38);
+            this.clear_cart_button.TabIndex = 8;
+            this.clear_cart_button.Text = "Clear Cart";
+            this.clear_cart_button.UseVisualStyleBackColor = true;
+            this.clear_cart_button.Click += new System.EventHandler(this.clear_cart_button_Click);
+            // 
+            // pay_button
+            // 
+            this.pay_button.Location = new System.Drawing.Point(340, 457);
+            this.pay_button.Name = "pay_button";
+            this.pay_button.Size = new System.Drawing.Size(75, 244);
+            this.pay_button.TabIndex = 7;
+            this.pay_button.Text = "Pay";
+            this.pay_button.UseVisualStyleBackColor = true;
             // 
             // cartList
             // 
@@ -470,6 +522,111 @@
             this.restockTab.TabIndex = 2;
             this.restockTab.Text = "Restock a Product";
             // 
+            // place_order_button
+            // 
+            this.place_order_button.Location = new System.Drawing.Point(6, 381);
+            this.place_order_button.Name = "place_order_button";
+            this.place_order_button.Size = new System.Drawing.Size(233, 43);
+            this.place_order_button.TabIndex = 29;
+            this.place_order_button.Text = "Place Order";
+            this.place_order_button.UseVisualStyleBackColor = true;
+            this.place_order_button.Click += new System.EventHandler(this.place_order_button_Click);
+            // 
+            // order_amount_numeric
+            // 
+            this.order_amount_numeric.Location = new System.Drawing.Point(6, 335);
+            this.order_amount_numeric.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.order_amount_numeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.order_amount_numeric.Name = "order_amount_numeric";
+            this.order_amount_numeric.Size = new System.Drawing.Size(229, 20);
+            this.order_amount_numeric.TabIndex = 28;
+            this.order_amount_numeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(7, 319);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(91, 13);
+            this.label14.TabIndex = 27;
+            this.label14.Text = "Amount To Order:";
+            // 
+            // order_balance_textbox
+            // 
+            this.order_balance_textbox.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.order_balance_textbox.Enabled = false;
+            this.order_balance_textbox.Location = new System.Drawing.Point(10, 284);
+            this.order_balance_textbox.Name = "order_balance_textbox";
+            this.order_balance_textbox.Size = new System.Drawing.Size(229, 20);
+            this.order_balance_textbox.TabIndex = 26;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(7, 268);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 13);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "Current Balance:";
+            // 
+            // order_id_textbox
+            // 
+            this.order_id_textbox.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.order_id_textbox.Enabled = false;
+            this.order_id_textbox.Location = new System.Drawing.Point(10, 181);
+            this.order_id_textbox.Name = "order_id_textbox";
+            this.order_id_textbox.Size = new System.Drawing.Size(229, 20);
+            this.order_id_textbox.TabIndex = 22;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(7, 165);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(21, 13);
+            this.label15.TabIndex = 21;
+            this.label15.Text = "ID:";
+            // 
+            // order_product_textbox
+            // 
+            this.order_product_textbox.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.order_product_textbox.Enabled = false;
+            this.order_product_textbox.Location = new System.Drawing.Point(10, 233);
+            this.order_product_textbox.Name = "order_product_textbox";
+            this.order_product_textbox.Size = new System.Drawing.Size(229, 20);
+            this.order_product_textbox.TabIndex = 20;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(7, 217);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(78, 13);
+            this.label16.TabIndex = 19;
+            this.label16.Text = "Product Name:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(6, 127);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(176, 24);
+            this.label17.TabIndex = 18;
+            this.label17.Text = "Selected Product:";
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -552,111 +709,6 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Balance";
             // 
-            // order_balance_textbox
-            // 
-            this.order_balance_textbox.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.order_balance_textbox.Enabled = false;
-            this.order_balance_textbox.Location = new System.Drawing.Point(10, 284);
-            this.order_balance_textbox.Name = "order_balance_textbox";
-            this.order_balance_textbox.Size = new System.Drawing.Size(229, 20);
-            this.order_balance_textbox.TabIndex = 26;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(7, 268);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(86, 13);
-            this.label13.TabIndex = 24;
-            this.label13.Text = "Current Balance:";
-            // 
-            // order_id_textbox
-            // 
-            this.order_id_textbox.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.order_id_textbox.Enabled = false;
-            this.order_id_textbox.Location = new System.Drawing.Point(10, 181);
-            this.order_id_textbox.Name = "order_id_textbox";
-            this.order_id_textbox.Size = new System.Drawing.Size(229, 20);
-            this.order_id_textbox.TabIndex = 22;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(7, 165);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(21, 13);
-            this.label15.TabIndex = 21;
-            this.label15.Text = "ID:";
-            // 
-            // order_product_textbox
-            // 
-            this.order_product_textbox.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.order_product_textbox.Enabled = false;
-            this.order_product_textbox.Location = new System.Drawing.Point(10, 233);
-            this.order_product_textbox.Name = "order_product_textbox";
-            this.order_product_textbox.Size = new System.Drawing.Size(229, 20);
-            this.order_product_textbox.TabIndex = 20;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(7, 217);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(78, 13);
-            this.label16.TabIndex = 19;
-            this.label16.Text = "Product Name:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(6, 127);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(176, 24);
-            this.label17.TabIndex = 18;
-            this.label17.Text = "Selected Product:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(7, 319);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(91, 13);
-            this.label14.TabIndex = 27;
-            this.label14.Text = "Amount To Order:";
-            // 
-            // order_amount_numeric
-            // 
-            this.order_amount_numeric.Location = new System.Drawing.Point(6, 335);
-            this.order_amount_numeric.Maximum = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.order_amount_numeric.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.order_amount_numeric.Name = "order_amount_numeric";
-            this.order_amount_numeric.Size = new System.Drawing.Size(229, 20);
-            this.order_amount_numeric.TabIndex = 28;
-            this.order_amount_numeric.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // place_order_button
-            // 
-            this.place_order_button.Location = new System.Drawing.Point(6, 381);
-            this.place_order_button.Name = "place_order_button";
-            this.place_order_button.Size = new System.Drawing.Size(233, 43);
-            this.place_order_button.TabIndex = 29;
-            this.place_order_button.Text = "Place Order";
-            this.place_order_button.UseVisualStyleBackColor = true;
-            this.place_order_button.Click += new System.EventHandler(this.place_order_button_Click);
-            // 
             // productBindingSource
             // 
             this.productBindingSource.DataSource = typeof(Store.Product);
@@ -664,6 +716,38 @@
             // mainWindowBindingSource
             // 
             this.mainWindowBindingSource.DataSource = typeof(Store.MainWindow);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label18.Location = new System.Drawing.Point(346, 244);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(60, 17);
+            this.label18.TabIndex = 11;
+            this.label18.Text = "Amount:";
+            // 
+            // register_amount_number
+            // 
+            this.register_amount_number.Location = new System.Drawing.Point(341, 273);
+            this.register_amount_number.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.register_amount_number.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.register_amount_number.Name = "register_amount_number";
+            this.register_amount_number.Size = new System.Drawing.Size(74, 20);
+            this.register_amount_number.TabIndex = 12;
+            this.register_amount_number.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // MainWindow
             // 
@@ -700,6 +784,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.order_amount_numeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainWindowBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.register_amount_number)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -759,6 +844,12 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button place_order_button;
+        private System.Windows.Forms.Button register_remItem_button;
+        private System.Windows.Forms.Button clear_cart_button;
+        private System.Windows.Forms.Button pay_button;
+        private System.Windows.Forms.Button add_selected_to_cart;
+        private System.Windows.Forms.NumericUpDown register_amount_number;
+        private System.Windows.Forms.Label label18;
     }
 }
 
