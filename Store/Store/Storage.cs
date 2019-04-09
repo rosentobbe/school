@@ -15,19 +15,32 @@ namespace Store
         {
             return allProducts;
         }
+
+        public Product getProductWithID(int ID)
+        {
+            return allProducts.FirstOrDefault(product => product.P_ID == ID);
+        }
         public List<Product> addNewProduct(string productName, int p_ID, decimal price, int balance)
         {
             allProducts.Add(new Product(productName, p_ID, price, balance));
             return allProducts;
         }
+        
+        public bool saveStorage()
+        {
+            return FH.saveProductsToFile(allProducts);
+        }
+
+        public void loadStorage()
+        {
+            allProducts = FH.loadProductsFromFile();
+        }
+
         public void removeProduct(int index)
         {
             allProducts.RemoveAt(index);
         }
-        public void productExists()
-        {
 
-        }
         public void increaseBalance(int target_P_ID, int balance)
         {
             foreach(Product x in allProducts)
@@ -38,9 +51,16 @@ namespace Store
                 }
             }
         }
-        public void decreaseBalance()
+        public void decreaseBalance(int P_id, int balance)
         {
-
+            foreach(Product x in allProducts)
+            {
+                if(x.P_ID == P_id)
+                {
+                    x.Balance = x.Balance - balance;
+                    break;
+                }
+            }
         }
         public bool isStoreEmpty()
         {
