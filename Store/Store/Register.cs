@@ -9,14 +9,21 @@ namespace Store
     class Register
     {
         int currentID { get; set; }
-        public int totalSum { get; set; }
+        public decimal totalSum { get; set; }
 
+        private ReceiptHandler RH       = new ReceiptHandler();
+        private StatisticHandler SH     = new StatisticHandler();
+
+        List<StatisticProduct> salesStatus = new List<StatisticProduct>();
         List<Product> currentCart = new List<Product>();
 
         public void checkout()
         {
+            addToStatistic(currentCart);
             update_totalPrice();
+            RH.printRecipt(currentCart, totalSum.ToString());
         }
+
         public void clear()
         {
             currentCart.Clear();
@@ -62,7 +69,26 @@ namespace Store
             }
             return false;
         }
-
+        
+        private void addToStatistic(List<Product> currentCart)
+        {
+            foreach(Product x in currentCart)
+            {
+                salesStatus.Add(new StatisticProduct(DateTime.Now.ToShortDateString(), x.Name, x.P_ID, x.Balance));
+            }
+        }
+        public void saveProductToStatistic()
+        { 
+            SH.saveProductsToFile(salesStatus);
+        }
+        public void loadProductStatistic()
+        {
+            salesStatus = SH.loadProductsFromFile();
+        }
+        public List<StatisticProduct> getStatisticList()
+        {
+            return salesStatus;
+        }
         public Product GetProductAtIndex(int index)
         {
             return currentCart.ElementAt(index);

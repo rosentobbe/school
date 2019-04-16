@@ -9,7 +9,7 @@ namespace Store
     class Storage
     {
         List<Product> allProducts = new List<Product>();
-        FileHandler FH = new FileHandler();
+        ProductFileHandler FH = new ProductFileHandler();
         
         public List<Product> getAvailableProducts()
         {
@@ -36,9 +36,16 @@ namespace Store
             allProducts = FH.loadProductsFromFile();
         }
 
-        public void removeProduct(int index)
+        public void removeProduct(int product_id)
         {
-            allProducts.RemoveAt(index);
+            foreach(Product x in allProducts)
+            {
+                if(product_id == x.P_ID)
+                {
+                    allProducts.Remove(x);
+                    break;
+                }
+            }
         }
 
         public void increaseBalance(int target_P_ID, int balance)
@@ -46,9 +53,7 @@ namespace Store
             foreach(Product x in allProducts)
             {
                 if(x.P_ID == target_P_ID)
-                {
                     x.Balance = x.Balance + balance;
-                }
             }
         }
         public void decreaseBalance(int P_id, int balance)
@@ -62,6 +67,7 @@ namespace Store
                 }
             }
         }
+
         public bool isStoreEmpty()
         {
             return !allProducts.Any();

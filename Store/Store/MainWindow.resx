@@ -117,6 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label36.Text" xml:space="preserve">
+    <value> 1.  Make sure to doublecheck the customers recipt.
+ 2.  Search for correct ID that the customer want to return.
+ 3.  Control that names are eqvivelent.
+ 4.  Enter number of items customer want to return.
+ 5.  Click "Return Item(s)".
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>37</value>
   </metadata>

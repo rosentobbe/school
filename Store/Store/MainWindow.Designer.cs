@@ -26,6 +26,7 @@
         #region
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.registerTab = new System.Windows.Forms.TabPage();
             this.sub_registerTab = new System.Windows.Forms.TabControl();
@@ -100,6 +101,31 @@
             this.search_textbox = new System.Windows.Forms.TextBox();
             this.search_button = new System.Windows.Forms.Button();
             this.clear_search_button = new System.Windows.Forms.Button();
+            this.stat_tab = new System.Windows.Forms.TabPage();
+            this.top_all_time = new System.Windows.Forms.Button();
+            this.top_month = new System.Windows.Forms.Button();
+            this.top_year = new System.Windows.Forms.Button();
+            this.top_Specific = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.stat_combo_ID = new System.Windows.Forms.ComboBox();
+            this.stat_label_ID = new System.Windows.Forms.Label();
+            this.stat_label_from = new System.Windows.Forms.Label();
+            this.stat_label_to = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.stat_text_box_display = new System.Windows.Forms.RichTextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.registerTab.SuspendLayout();
             this.sub_registerTab.SuspendLayout();
@@ -115,6 +141,7 @@
             this.removeTab.SuspendLayout();
             this.restockTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.order_amount_numeric)).BeginInit();
+            this.stat_tab.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -142,6 +169,7 @@
             // 
             this.sub_registerTab.Controls.Add(this.sell_tab);
             this.sub_registerTab.Controls.Add(this.return_tab);
+            this.sub_registerTab.Controls.Add(this.stat_tab);
             this.sub_registerTab.Location = new System.Drawing.Point(0, 6);
             this.sub_registerTab.Name = "sub_registerTab";
             this.sub_registerTab.SelectedIndex = 0;
@@ -211,9 +239,9 @@
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label20.Location = new System.Drawing.Point(327, 31);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(44, 20);
+            this.label20.Size = new System.Drawing.Size(67, 20);
             this.label20.TabIndex = 20;
-            this.label20.Text = "Price";
+            this.label20.Text = "Price (€)";
             // 
             // label21
             // 
@@ -328,6 +356,8 @@
             // return_tab
             // 
             this.return_tab.BackColor = System.Drawing.Color.Transparent;
+            this.return_tab.Controls.Add(this.label35);
+            this.return_tab.Controls.Add(this.label36);
             this.return_tab.Controls.Add(this.label23);
             this.return_tab.Controls.Add(this.label25);
             this.return_tab.Controls.Add(this.label26);
@@ -345,7 +375,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(21, 183);
+            this.label23.Location = new System.Drawing.Point(17, 264);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(49, 13);
             this.label23.TabIndex = 15;
@@ -354,7 +384,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(21, 76);
+            this.label25.Location = new System.Drawing.Point(17, 157);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(21, 13);
             this.label25.TabIndex = 12;
@@ -363,7 +393,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(20, 128);
+            this.label26.Location = new System.Drawing.Point(16, 209);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(78, 13);
             this.label26.TabIndex = 10;
@@ -373,14 +403,14 @@
             // 
             this.return_Product_name_box.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.return_Product_name_box.Enabled = false;
-            this.return_Product_name_box.Location = new System.Drawing.Point(23, 144);
+            this.return_Product_name_box.Location = new System.Drawing.Point(19, 225);
             this.return_Product_name_box.Name = "return_Product_name_box";
             this.return_Product_name_box.Size = new System.Drawing.Size(201, 20);
             this.return_Product_name_box.TabIndex = 3;
             // 
             // return_button
             // 
-            this.return_button.Location = new System.Drawing.Point(23, 235);
+            this.return_button.Location = new System.Drawing.Point(19, 316);
             this.return_button.Name = "return_button";
             this.return_button.Size = new System.Drawing.Size(201, 51);
             this.return_button.TabIndex = 2;
@@ -390,7 +420,7 @@
             // 
             // return_balance
             // 
-            this.return_balance.Location = new System.Drawing.Point(24, 199);
+            this.return_balance.Location = new System.Drawing.Point(20, 280);
             this.return_balance.Maximum = new decimal(new int[] {
             999999999,
             0,
@@ -414,7 +444,7 @@
             // 
             this.id_dropdown_box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.id_dropdown_box.FormattingEnabled = true;
-            this.id_dropdown_box.Location = new System.Drawing.Point(23, 92);
+            this.id_dropdown_box.Location = new System.Drawing.Point(19, 173);
             this.id_dropdown_box.Name = "id_dropdown_box";
             this.id_dropdown_box.Size = new System.Drawing.Size(201, 21);
             this.id_dropdown_box.TabIndex = 0;
@@ -445,6 +475,8 @@
             // addTab
             // 
             this.addTab.BackColor = System.Drawing.Color.Transparent;
+            this.addTab.Controls.Add(this.label33);
+            this.addTab.Controls.Add(this.label34);
             this.addTab.Controls.Add(this.add_product_button);
             this.addTab.Controls.Add(this.number_Balance);
             this.addTab.Controls.Add(this.number_Price);
@@ -463,7 +495,7 @@
             // 
             // add_product_button
             // 
-            this.add_product_button.Location = new System.Drawing.Point(22, 277);
+            this.add_product_button.Location = new System.Drawing.Point(10, 378);
             this.add_product_button.Name = "add_product_button";
             this.add_product_button.Size = new System.Drawing.Size(229, 52);
             this.add_product_button.TabIndex = 10;
@@ -473,7 +505,7 @@
             // 
             // number_Balance
             // 
-            this.number_Balance.Location = new System.Drawing.Point(22, 226);
+            this.number_Balance.Location = new System.Drawing.Point(10, 327);
             this.number_Balance.Maximum = new decimal(new int[] {
             999999999,
             0,
@@ -501,7 +533,7 @@
             0,
             0,
             65536});
-            this.number_Price.Location = new System.Drawing.Point(22, 166);
+            this.number_Price.Location = new System.Drawing.Point(10, 267);
             this.number_Price.Maximum = new decimal(new int[] {
             999999999,
             0,
@@ -524,7 +556,7 @@
             // label_Balance
             // 
             this.label_Balance.AutoSize = true;
-            this.label_Balance.Location = new System.Drawing.Point(19, 198);
+            this.label_Balance.Location = new System.Drawing.Point(7, 299);
             this.label_Balance.Name = "label_Balance";
             this.label_Balance.Size = new System.Drawing.Size(49, 13);
             this.label_Balance.TabIndex = 6;
@@ -533,7 +565,7 @@
             // label_Price
             // 
             this.label_Price.AutoSize = true;
-            this.label_Price.Location = new System.Drawing.Point(19, 141);
+            this.label_Price.Location = new System.Drawing.Point(7, 242);
             this.label_Price.Name = "label_Price";
             this.label_Price.Size = new System.Drawing.Size(34, 13);
             this.label_Price.TabIndex = 4;
@@ -543,7 +575,7 @@
             // 
             this.textbox_ID.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.textbox_ID.Enabled = false;
-            this.textbox_ID.Location = new System.Drawing.Point(22, 53);
+            this.textbox_ID.Location = new System.Drawing.Point(10, 154);
             this.textbox_ID.Name = "textbox_ID";
             this.textbox_ID.Size = new System.Drawing.Size(229, 20);
             this.textbox_ID.TabIndex = 3;
@@ -551,7 +583,7 @@
             // label_ID
             // 
             this.label_ID.AutoSize = true;
-            this.label_ID.Location = new System.Drawing.Point(19, 37);
+            this.label_ID.Location = new System.Drawing.Point(7, 138);
             this.label_ID.Name = "label_ID";
             this.label_ID.Size = new System.Drawing.Size(21, 13);
             this.label_ID.TabIndex = 2;
@@ -560,7 +592,7 @@
             // storage_productName_texbox
             // 
             this.storage_productName_texbox.BackColor = System.Drawing.SystemColors.Window;
-            this.storage_productName_texbox.Location = new System.Drawing.Point(22, 105);
+            this.storage_productName_texbox.Location = new System.Drawing.Point(10, 206);
             this.storage_productName_texbox.Name = "storage_productName_texbox";
             this.storage_productName_texbox.Size = new System.Drawing.Size(229, 20);
             this.storage_productName_texbox.TabIndex = 1;
@@ -569,7 +601,7 @@
             // label_Name
             // 
             this.label_Name.AutoSize = true;
-            this.label_Name.Location = new System.Drawing.Point(19, 89);
+            this.label_Name.Location = new System.Drawing.Point(7, 190);
             this.label_Name.Name = "label_Name";
             this.label_Name.Size = new System.Drawing.Size(78, 13);
             this.label_Name.TabIndex = 0;
@@ -601,7 +633,7 @@
             // 
             this.remove_balance_textbox.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.remove_balance_textbox.Enabled = false;
-            this.remove_balance_textbox.Location = new System.Drawing.Point(9, 452);
+            this.remove_balance_textbox.Location = new System.Drawing.Point(10, 379);
             this.remove_balance_textbox.Name = "remove_balance_textbox";
             this.remove_balance_textbox.Size = new System.Drawing.Size(229, 20);
             this.remove_balance_textbox.TabIndex = 17;
@@ -610,7 +642,7 @@
             // 
             this.remove_price_textbox.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.remove_price_textbox.Enabled = false;
-            this.remove_price_textbox.Location = new System.Drawing.Point(9, 393);
+            this.remove_price_textbox.Location = new System.Drawing.Point(10, 320);
             this.remove_price_textbox.Name = "remove_price_textbox";
             this.remove_price_textbox.Size = new System.Drawing.Size(229, 20);
             this.remove_price_textbox.TabIndex = 16;
@@ -618,7 +650,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 425);
+            this.label7.Location = new System.Drawing.Point(7, 352);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 13);
             this.label7.TabIndex = 15;
@@ -627,7 +659,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 368);
+            this.label8.Location = new System.Drawing.Point(7, 295);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(34, 13);
             this.label8.TabIndex = 14;
@@ -637,7 +669,7 @@
             // 
             this.remove_id_textbox.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.remove_id_textbox.Enabled = false;
-            this.remove_id_textbox.Location = new System.Drawing.Point(9, 280);
+            this.remove_id_textbox.Location = new System.Drawing.Point(10, 207);
             this.remove_id_textbox.Name = "remove_id_textbox";
             this.remove_id_textbox.Size = new System.Drawing.Size(229, 20);
             this.remove_id_textbox.TabIndex = 13;
@@ -645,7 +677,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 264);
+            this.label9.Location = new System.Drawing.Point(7, 191);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(21, 13);
             this.label9.TabIndex = 12;
@@ -655,7 +687,7 @@
             // 
             this.remove_name_textbox.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.remove_name_textbox.Enabled = false;
-            this.remove_name_textbox.Location = new System.Drawing.Point(9, 332);
+            this.remove_name_textbox.Location = new System.Drawing.Point(10, 259);
             this.remove_name_textbox.Name = "remove_name_textbox";
             this.remove_name_textbox.Size = new System.Drawing.Size(229, 20);
             this.remove_name_textbox.TabIndex = 11;
@@ -663,7 +695,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 316);
+            this.label10.Location = new System.Drawing.Point(7, 243);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 13);
             this.label10.TabIndex = 10;
@@ -673,7 +705,7 @@
             // 
             this.selected_product_label.AutoSize = true;
             this.selected_product_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selected_product_label.Location = new System.Drawing.Point(5, 226);
+            this.selected_product_label.Location = new System.Drawing.Point(6, 153);
             this.selected_product_label.Name = "selected_product_label";
             this.selected_product_label.Size = new System.Drawing.Size(176, 24);
             this.selected_product_label.TabIndex = 3;
@@ -681,7 +713,7 @@
             // 
             // remove_product_button
             // 
-            this.remove_product_button.Location = new System.Drawing.Point(9, 149);
+            this.remove_product_button.Location = new System.Drawing.Point(6, 414);
             this.remove_product_button.Name = "remove_product_button";
             this.remove_product_button.Size = new System.Drawing.Size(242, 44);
             this.remove_product_button.TabIndex = 2;
@@ -906,9 +938,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label4.Location = new System.Drawing.Point(941, 103);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 20);
+            this.label4.Size = new System.Drawing.Size(67, 20);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Price";
+            this.label4.Text = "Price (€)";
             // 
             // label5
             // 
@@ -956,6 +988,274 @@
             this.clear_search_button.TabIndex = 9;
             this.clear_search_button.Text = "Clear Search";
             this.clear_search_button.UseVisualStyleBackColor = true;
+            this.clear_search_button.Click += new System.EventHandler(this.clear_search_button_Click);
+            // 
+            // stat_tab
+            // 
+            this.stat_tab.BackColor = System.Drawing.Color.Transparent;
+            this.stat_tab.Controls.Add(this.label39);
+            this.stat_tab.Controls.Add(this.label37);
+            this.stat_tab.Controls.Add(this.label38);
+            this.stat_tab.Controls.Add(this.label32);
+            this.stat_tab.Controls.Add(this.label31);
+            this.stat_tab.Controls.Add(this.label30);
+            this.stat_tab.Controls.Add(this.label29);
+            this.stat_tab.Controls.Add(this.stat_text_box_display);
+            this.stat_tab.Controls.Add(this.label27);
+            this.stat_tab.Controls.Add(this.label24);
+            this.stat_tab.Controls.Add(this.stat_label_to);
+            this.stat_tab.Controls.Add(this.stat_label_from);
+            this.stat_tab.Controls.Add(this.stat_label_ID);
+            this.stat_tab.Controls.Add(this.stat_combo_ID);
+            this.stat_tab.Controls.Add(this.dateTimePicker2);
+            this.stat_tab.Controls.Add(this.dateTimePicker1);
+            this.stat_tab.Controls.Add(this.top_Specific);
+            this.stat_tab.Controls.Add(this.top_year);
+            this.stat_tab.Controls.Add(this.top_month);
+            this.stat_tab.Controls.Add(this.top_all_time);
+            this.stat_tab.Location = new System.Drawing.Point(4, 22);
+            this.stat_tab.Name = "stat_tab";
+            this.stat_tab.Padding = new System.Windows.Forms.Padding(3);
+            this.stat_tab.Size = new System.Drawing.Size(601, 698);
+            this.stat_tab.TabIndex = 2;
+            this.stat_tab.Text = "Statistic";
+            // 
+            // top_all_time
+            // 
+            this.top_all_time.Location = new System.Drawing.Point(6, 41);
+            this.top_all_time.Name = "top_all_time";
+            this.top_all_time.Size = new System.Drawing.Size(151, 31);
+            this.top_all_time.TabIndex = 0;
+            this.top_all_time.Text = "Top 10 of all time";
+            this.top_all_time.UseVisualStyleBackColor = true;
+            this.top_all_time.Click += new System.EventHandler(this.top_sales_buttons_click);
+            // 
+            // top_month
+            // 
+            this.top_month.Location = new System.Drawing.Point(6, 78);
+            this.top_month.Name = "top_month";
+            this.top_month.Size = new System.Drawing.Size(150, 31);
+            this.top_month.TabIndex = 1;
+            this.top_month.Text = "Top 10 this month";
+            this.top_month.UseVisualStyleBackColor = true;
+            this.top_month.Click += new System.EventHandler(this.top_sales_buttons_click);
+            // 
+            // top_year
+            // 
+            this.top_year.Location = new System.Drawing.Point(6, 115);
+            this.top_year.Name = "top_year";
+            this.top_year.Size = new System.Drawing.Size(150, 31);
+            this.top_year.TabIndex = 2;
+            this.top_year.Text = "Top 10 this year";
+            this.top_year.UseVisualStyleBackColor = true;
+            this.top_year.Click += new System.EventHandler(this.top_sales_buttons_click);
+            // 
+            // top_Specific
+            // 
+            this.top_Specific.Location = new System.Drawing.Point(9, 663);
+            this.top_Specific.Name = "top_Specific";
+            this.top_Specific.Size = new System.Drawing.Size(150, 31);
+            this.top_Specific.TabIndex = 3;
+            this.top_Specific.Text = "Display";
+            this.top_Specific.UseVisualStyleBackColor = true;
+            this.top_Specific.Click += new System.EventHandler(this.top_Specific_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "YYYY - MM - DD";
+            this.dateTimePicker1.Location = new System.Drawing.Point(9, 568);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(150, 20);
+            this.dateTimePicker1.TabIndex = 4;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(9, 624);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(150, 20);
+            this.dateTimePicker2.TabIndex = 5;
+            // 
+            // stat_combo_ID
+            // 
+            this.stat_combo_ID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.stat_combo_ID.FormattingEnabled = true;
+            this.stat_combo_ID.Location = new System.Drawing.Point(8, 524);
+            this.stat_combo_ID.Name = "stat_combo_ID";
+            this.stat_combo_ID.Size = new System.Drawing.Size(150, 21);
+            this.stat_combo_ID.TabIndex = 6;
+            // 
+            // stat_label_ID
+            // 
+            this.stat_label_ID.AutoSize = true;
+            this.stat_label_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.stat_label_ID.Location = new System.Drawing.Point(6, 504);
+            this.stat_label_ID.Name = "stat_label_ID";
+            this.stat_label_ID.Size = new System.Drawing.Size(25, 17);
+            this.stat_label_ID.TabIndex = 7;
+            this.stat_label_ID.Text = "ID:";
+            // 
+            // stat_label_from
+            // 
+            this.stat_label_from.AutoSize = true;
+            this.stat_label_from.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.stat_label_from.Location = new System.Drawing.Point(6, 548);
+            this.stat_label_from.Name = "stat_label_from";
+            this.stat_label_from.Size = new System.Drawing.Size(44, 17);
+            this.stat_label_from.TabIndex = 8;
+            this.stat_label_from.Text = "From:";
+            // 
+            // stat_label_to
+            // 
+            this.stat_label_to.AutoSize = true;
+            this.stat_label_to.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.stat_label_to.Location = new System.Drawing.Point(6, 604);
+            this.stat_label_to.Name = "stat_label_to";
+            this.stat_label_to.Size = new System.Drawing.Size(29, 17);
+            this.stat_label_to.TabIndex = 9;
+            this.stat_label_to.Text = "To:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label24.Location = new System.Drawing.Point(6, 13);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(119, 25);
+            this.label24.TabIndex = 10;
+            this.label24.Text = "Top 10 Lists";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label27.Location = new System.Drawing.Point(3, 479);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(153, 25);
+            this.label27.TabIndex = 11;
+            this.label27.Text = "Specific Product";
+            // 
+            // stat_text_box_display
+            // 
+            this.stat_text_box_display.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.stat_text_box_display.Enabled = false;
+            this.stat_text_box_display.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stat_text_box_display.Location = new System.Drawing.Point(11, 186);
+            this.stat_text_box_display.Name = "stat_text_box_display";
+            this.stat_text_box_display.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.stat_text_box_display.Size = new System.Drawing.Size(584, 290);
+            this.stat_text_box_display.TabIndex = 14;
+            this.stat_text_box_display.Text = "";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.label29.Location = new System.Drawing.Point(65, 164);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(27, 22);
+            this.label29.TabIndex = 15;
+            this.label29.Text = "ID";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.label30.Location = new System.Drawing.Point(121, 164);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(57, 22);
+            this.label30.TabIndex = 16;
+            this.label30.Text = "Name";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.label31.Location = new System.Drawing.Point(486, 161);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(109, 22);
+            this.label31.TabIndex = 17;
+            this.label31.Text = "Amount sold";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.label32.Location = new System.Drawing.Point(7, 164);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(52, 22);
+            this.label32.TabIndex = 18;
+            this.label32.Text = "Rank";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(6, 13);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(122, 24);
+            this.label33.TabIndex = 12;
+            this.label33.Text = "Instructions:";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label34.Location = new System.Drawing.Point(7, 46);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(301, 51);
+            this.label34.TabIndex = 11;
+            this.label34.Text = " 1.  Fill out all the fields, ID is autoincremented.\r\n 2.  Double check Price and" +
+    " Balance.\r\n 3.  Click \"Add Product\" to add product. ";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(16, 23);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(122, 24);
+            this.label35.TabIndex = 17;
+            this.label35.Text = "Instructions:";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label36.Location = new System.Drawing.Point(17, 56);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(372, 85);
+            this.label36.TabIndex = 16;
+            this.label36.Text = resources.GetString("label36.Text");
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(174, 479);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(270, 24);
+            this.label37.TabIndex = 20;
+            this.label37.Text = "Instructions specific display:";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label38.Location = new System.Drawing.Point(175, 514);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(144, 51);
+            this.label38.TabIndex = 19;
+            this.label38.Text = " 1.  Select product ID\r\n 2.  Select date range\r\n 3. Click \"Display\"\r\n";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(175, 22);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(139, 52);
+            this.label39.TabIndex = 21;
+            this.label39.Text = "Note: \r\nOld/Removed products can\r\nstill be displayed if they are\r\nstill among top" +
+    " 10.";
             // 
             // MainWindow
             // 
@@ -1001,6 +1301,8 @@
             this.restockTab.ResumeLayout(false);
             this.restockTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.order_amount_numeric)).EndInit();
+            this.stat_tab.ResumeLayout(false);
+            this.stat_tab.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1082,6 +1384,31 @@
         private System.Windows.Forms.TextBox search_textbox;
         private System.Windows.Forms.Button search_button;
         private System.Windows.Forms.Button clear_search_button;
+        private System.Windows.Forms.TabPage stat_tab;
+        private System.Windows.Forms.Label stat_label_to;
+        private System.Windows.Forms.Label stat_label_from;
+        private System.Windows.Forms.Label stat_label_ID;
+        private System.Windows.Forms.ComboBox stat_combo_ID;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button top_Specific;
+        private System.Windows.Forms.Button top_year;
+        private System.Windows.Forms.Button top_month;
+        private System.Windows.Forms.Button top_all_time;
+        private System.Windows.Forms.RichTextBox stat_text_box_display;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
     }
 }
 
