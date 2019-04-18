@@ -19,6 +19,8 @@ namespace Store
         int count = 0;
         int loopCount = 0;
 
+        //When triggered it asks the User if they want a receipt or not. 
+        //Will let the User select printer.
         public void printRecipt(List<Product> products, string totalSum)
         {
             toPrint = preparePrint(products, totalSum);
@@ -37,6 +39,8 @@ namespace Store
                 MessageBox.Show("Couldn't print receipt!");
             }
         }
+
+        //Prepares the structure of the receipt and adds all products to a string.
         private string preparePrint(List<Product> productsInCart, string totalSum)
         {
             string preparePrint = "Receipt from purchase made - " + DateTime.Now.ToString() + "\n\n";
@@ -55,6 +59,9 @@ namespace Store
             preparePrint = preparePrint + "\nTotal price = " + totalSum + " €";
             return preparePrint;
         }
+
+        //Splits the string containg all bought products. Then adds them line by line into a document that are to be printed.
+        //It will count number of lines added so that it can print on several pages if many products have been bought.
         private void document_Print(object sender, PrintPageEventArgs ev)
         {
             float linesPerPage = 0;
@@ -66,7 +73,6 @@ namespace Store
             string[] linesToWrite = toPrint.Split('\n');
             int numLines = linesToWrite.Length;
             
-            //Calculate the number of lines per page.
             linesPerPage = ev.MarginBounds.Height / printFont.GetHeight(ev.Graphics);
             while (temp_count < linesPerPage && count < numLines)
             {
@@ -77,7 +83,6 @@ namespace Store
                 count++;
 
             }
-            //If more lines exist, print another page.
             if (count < numLines)
             {
                 ev.HasMorePages = true;

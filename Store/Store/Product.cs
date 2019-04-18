@@ -12,6 +12,8 @@ namespace Store
         public int P_ID { get; set; }
         public decimal Price { get; set; }
         public int Balance { get; set; }
+
+        //Creates a product with the given fields. 
         public Product(string name, int p_id, decimal price, int balance)
         {
             Name = name;

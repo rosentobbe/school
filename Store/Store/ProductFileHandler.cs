@@ -8,7 +8,9 @@ using System.IO;
 namespace Store
 {
     class ProductFileHandler
-    {
+    {        
+        //Saves the all the products in the store to a CSV-file. 
+        //Uses global paths so that it will work on "any" computer.
         public bool saveProductsToFile(List<Product> products)
         {
             try
@@ -27,7 +29,7 @@ namespace Store
                 return false;
             }
         }
-
+        //Loads the products from a CSV-file(if it exists).
         public List<Product> loadProductsFromFile()
         {
             List<Product> LoadedProducts = new List<Product>();

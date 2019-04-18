@@ -116,7 +116,7 @@ namespace Store
             }
             update_total_price();
         }
-        //Clears all the feilds so that no old values can accedently be used.
+        //Clears all the feilds so that no old values can accidently be used.
         private void clearAllFields()
         {
             remove_id_textbox.Clear();
@@ -127,6 +127,8 @@ namespace Store
             order_id_textbox.Clear();
             order_product_textbox.Clear();
             order_balance_textbox.Clear();
+
+            register_amount_number.Value = 1;
 
             dateTimePicker1.ResetText();
             dateTimePicker2.ResetText();
@@ -306,34 +308,38 @@ namespace Store
                 rankCount++;
             }
         }
-
+        //Triggers as the "Add selected item to the cart" is clicked. 
+        //It will collect the ID of the selected product and then retrive the product and it's balance from the storage. 
+        //It will add x number of items if balance is larger than x.
         public void addToCart_Click(object sender, EventArgs e)
         {
-            int productID = Convert.ToInt32(((string)storage_ListBox.SelectedItem).Split(' ')[0]);
+            if(storage_ListBox.SelectedItem != null) { 
+                int productID = Convert.ToInt32(((string)storage_ListBox.SelectedItem).Split(' ')[0]);
 
-            if (productID > -1)
-            {
-                List<Product> temp_product_list = storageObject.getAvailableProducts();
-                Product temp_product = temp_product_list.ElementAt(0);
-                foreach (Product x in temp_product_list)
+                if (productID > -1)
                 {
-                    if (x.P_ID == productID)
+                    List<Product> temp_product_list = storageObject.getAvailableProducts();
+                    Product temp_product = temp_product_list.ElementAt(0);
+                    foreach (Product x in temp_product_list)
                     {
-                        temp_product = x;
-                        break;
+                        if (x.P_ID == productID)
+                        {
+                            temp_product = x;
+                            break;
+                        }
                     }
+                    if (temp_product.Balance >= register_amount_number.Value)
+                    {
+                        registerObject.add(temp_product.P_ID, temp_product.Name, temp_product.Price, (int)register_amount_number.Value);
+                        storageObject.decreaseBalance(temp_product.P_ID, (int)register_amount_number.Value);
+                        update_All_Lists();
+                    }
+                    else
+                        MessageBox.Show("Don't have enough in store, choose a less amount");
                 }
-                if (temp_product.Balance >= register_amount_number.Value)
-                {
-                    registerObject.add(temp_product.P_ID, temp_product.Name, temp_product.Price, (int)register_amount_number.Value);
-                    storageObject.decreaseBalance(temp_product.P_ID, (int)register_amount_number.Value);
-                    update_All_Lists();
-                }
-                else
-                    MessageBox.Show("Don't have enough in store, choose a less amount");
             }
         }
-
+        //Triggers as the User wants to removes a product from storage. If the balance isn't 0 the User will get a notification.
         private void remove_StoreProduct_Click(object sender, EventArgs e)
         {
             int selectedIndex = storage_ListBox.SelectedIndex;
@@ -350,7 +356,9 @@ namespace Store
                 }
             }
         }
-
+        //Allows the Storage User to restock a product.
+        //Controls the wished amount so that it dont exceed the limit.
+        //Condition: Cart is empty.
         private void restock_Storage_click(object sender, EventArgs e)
         {
             if (registerObject.isCartEmpty())
@@ -382,7 +390,7 @@ namespace Store
             else
                 MessageBox.Show("Please Clear the Cart Before Restocking a Product");
         }
-
+        //Clears the whole register cart and restores the product balance in Storage.
         private void clear_cart_button_Click(object sender, EventArgs e)
         {
             foreach (Product x in registerObject.getAllProductsInCart())
@@ -393,13 +401,14 @@ namespace Store
             cartList.Items.Clear();
             update_All_Lists();
         }
-
+        //Allows the storage users to add new product to the store. Checks if all the fileds are correct.
         private void add_product_button_Click(object sender, EventArgs e)
         {
             if (storage_productName_texbox.Text == "" || storage_productName_texbox.Text.First() == ' ')
                 storage_productName_texbox.BackColor = Color.Red;
             else if (storage_productName_texbox.Text.Contains(","))
             {
+                storage_productName_texbox.BackColor = Color.Red;
                 MessageBox.Show("Product names can not contain ','");
             }
             else
@@ -412,7 +421,7 @@ namespace Store
                 update_ID();
             }
         }
-
+        //Removes a selected item from the register cart. Also restore that products balance in the storage.
         private void remove_ItemCart_click(object sender, EventArgs e)
         {
             int selectedIndex = cartList.SelectedIndex;
@@ -427,19 +436,26 @@ namespace Store
                 update_All_Lists();
             }
         }
+        //Triggers as the register User clicks pay. Will call checkout function and then clear all fields.
         private void pay_button_click(object sender, EventArgs e)
         {
-            registerObject.checkout();
+            if (!registerObject.isCartEmpty())
+            {
+                registerObject.checkout();
 
-            registerObject.clear();
-            cartList.Items.Clear();
-            update_All_Lists();
+                registerObject.clear();
+                cartList.Items.Clear();
+                update_All_Lists();
+            }
         }
 
 
         /*******************************************************************/
-        /*                  Top List Handlers                              */
+        /*                  Top 10 List Handlers                           */
         /*******************************************************************/
+        //Updates the all time top list and displays it. 
+        //Removed products that have the same ID will show up with the ID they had at that time. 
+        //This will happen as long as they remain top sales.
         private List<StatisticProduct> topAllTimeHandler()
         {
             bool contain;
@@ -462,7 +478,8 @@ namespace Store
             }
             return topList;
         }
-
+        //Updates the top sales for this month. 
+        //Same feature here, removed products can have the same ID as existing ones. 
         private List<StatisticProduct> topMonthHandler()
         {
             bool contain;
@@ -489,7 +506,7 @@ namespace Store
             }
             return topList;
         }
-
+        //Updates the top sales for this year.
         private List<StatisticProduct> topYearHandler()
         {
             bool contain;
@@ -514,6 +531,21 @@ namespace Store
                     topList.Add(new StatisticProduct("", x.Name, x.P_ID, x.Balance));
             }
             return topList;
+        }
+
+        private void help_button_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "Add product - Instructions:\n" +
+                "1. Select a product from the store list to your right.\n" +
+                "2. Enter number of the product to add.\n" +
+                "3. Click the add to cart button.\n" +
+                "4. Click pay when all product are registered.\n\n" +
+                "Remove/Clear - Instructions:\n" +
+                "1a. Clear button will clear the whole cart.\n" +
+                "1b. Select a product from the cart.\n" +
+                "2b. Click remove product from cart to remove the all instances of a specific product.\n" +
+                "");
         }
     }
 }

@@ -9,6 +9,8 @@ namespace Store
 {
     class StatisticHandler
     {
+        //Saves the statistics of bought products.
+        //Uses global paths so that it will work on "any" computer.
         public bool saveProductsToFile(List<StatisticProduct> statistics)
         {
             try
@@ -27,7 +29,7 @@ namespace Store
                 return false;
             }
         }
-
+        //Loads the statistics of products from a CSV-file(if it exists).
         public List<StatisticProduct> loadProductsFromFile()
         {
             List<StatisticProduct> LoadedProducts = new List<StatisticProduct>();

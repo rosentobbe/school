@@ -125,6 +125,15 @@
  5.  Click "Return Item(s)".
 </value>
   </data>
+  <data name="remove_product_label.Text" xml:space="preserve">
+    <value> 1.  Select product from the list
+ 2.  Verify that the right product is selected.
+ 3.  Click "Remove Selected Product"
+(4). If product have balance &gt; 0,
+      "Yes", removes product anyways
+      "No", the product is not removed. 
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>37</value>
   </metadata>

@@ -12,6 +12,7 @@ namespace Store
         public string Name { get; set; }
         public int P_ID { get; set; }
         public int Balance { get; set; }
+        //Creates an statisticProduct with the given fields. Used for sales statistic. 
         public StatisticProduct(string date, string name, int p_id, int balance)
         {
             Date = date;

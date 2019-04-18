@@ -11,31 +11,33 @@ namespace Store
         List<Product> allProducts = new List<Product>();
         ProductFileHandler FH = new ProductFileHandler();
         
+        //Returns a list of all products that are in the store.
         public List<Product> getAvailableProducts()
         {
             return allProducts;
         }
-
+        //Collects and returns a specific product with the corresponding ID.
         public Product getProductWithID(int ID)
         {
             return allProducts.FirstOrDefault(product => product.P_ID == ID);
         }
+        //Adds a new product to the store, with the given fields. Then return the new list of products.
         public List<Product> addNewProduct(string productName, int p_ID, decimal price, int balance)
         {
             allProducts.Add(new Product(productName, p_ID, price, balance));
             return allProducts;
         }
-        
+        //Calls the FH which is the fileHandler for the products. Saves the storage to csv.
         public bool saveStorage()
         {
             return FH.saveProductsToFile(allProducts);
         }
-
+        //As the store opens all the products are loaded from file with the help of FH.
         public void loadStorage()
         {
             allProducts = FH.loadProductsFromFile();
         }
-
+        //Removes the product with the corresponding product ID.
         public void removeProduct(int product_id)
         {
             foreach(Product x in allProducts)
@@ -47,7 +49,7 @@ namespace Store
                 }
             }
         }
-
+        //Increases the balance of a product with the given ID.
         public void increaseBalance(int target_P_ID, int balance)
         {
             foreach(Product x in allProducts)
@@ -56,6 +58,7 @@ namespace Store
                     x.Balance = x.Balance + balance;
             }
         }
+        //Decreases the balance of a product with the given ID.
         public void decreaseBalance(int P_id, int balance)
         {
             foreach(Product x in allProducts)
@@ -67,7 +70,7 @@ namespace Store
                 }
             }
         }
-
+        //Checks wheter the store has no registered products.
         public bool isStoreEmpty()
         {
             return !allProducts.Any();
