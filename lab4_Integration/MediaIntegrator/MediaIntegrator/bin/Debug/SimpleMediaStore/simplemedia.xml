@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Inventory>
+  <Item>
+    <Name>Nothing Special</Name>
+    <Count>1</Count>
+    <Price>2</Price>
+    <Comment>3</Comment>
+    <Artist>4</Artist>
+    <Publisher>5</Publisher>
+    <Genre>6</Genre>
+    <Year>7</Year>
+    <ProductID>8</ProductID>
+  </Item>
+  <Item>
+    <Name>Nothing Special;</Name>
+    <Count>1</Count>
+    <Price>2</Price>
+    <Comment>3</Comment>
+    <Artist>4</Artist>
+    <Publisher>5</Publisher>
+    <Genre>6</Genre>
+    <Year>7</Year>
+    <ProductID>9</ProductID>
+  </Item>
+</Inventory>

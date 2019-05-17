@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Store.MainWindow">
+    <Position X="3.25" Y="0.5" Width="3.5" />
+    <Members>
+      <Field Name="add_product_button" Hidden="true" />
+      <Field Name="add_selected_to_cart" Hidden="true" />
+      <Field Name="addTab" Hidden="true" />
+      <Field Name="cartLabel" Hidden="true" />
+      <Field Name="cartList" Hidden="true" />
+      <Field Name="CARTLIST_NAME_LENGTH" Hidden="true" />
+      <Field Name="clear_cart_button" Hidden="true" />
+      <Field Name="clear_search_button" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="dateTimePicker1" Hidden="true" />
+      <Field Name="dateTimePicker2" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="help_button" Hidden="true" />
+      <Field Name="id_dropdown_box" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label_Balance" Hidden="true" />
+      <Field Name="label_ID" Hidden="true" />
+      <Field Name="label_Name" Hidden="true" />
+      <Field Name="label_Price" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label10" Hidden="true" />
+      <Field Name="label11" Hidden="true" />
+      <Field Name="label12" Hidden="true" />
+      <Field Name="label13" Hidden="true" />
+      <Field Name="label14" Hidden="true" />
+      <Field Name="label15" Hidden="true" />
+      <Field Name="label16" Hidden="true" />
+      <Field Name="label17" Hidden="true" />
+      <Field Name="label18" Hidden="true" />
+      <Field Name="label19" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label20" Hidden="true" />
+      <Field Name="label21" Hidden="true" />
+      <Field Name="label22" Hidden="true" />
+      <Field Name="label23" Hidden="true" />
+      <Field Name="label24" Hidden="true" />
+      <Field Name="label25" Hidden="true" />
+      <Field Name="label26" Hidden="true" />
+      <Field Name="label27" Hidden="true" />
+      <Field Name="label29" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="label30" Hidden="true" />
+      <Field Name="label31" Hidden="true" />
+      <Field Name="label32" Hidden="true" />
+      <Field Name="label33" Hidden="true" />
+      <Field Name="label34" Hidden="true" />
+      <Field Name="label35" Hidden="true" />
+      <Field Name="label36" Hidden="true" />
+      <Field Name="label37" Hidden="true" />
+      <Field Name="label38" Hidden="true" />
+      <Field Name="label39" Hidden="true" />
+      <Field Name="label4" Hidden="true" />
+      <Field Name="label5" Hidden="true" />
+      <Field Name="label6" Hidden="true" />
+      <Field Name="label7" Hidden="true" />
+      <Field Name="label8" Hidden="true" />
+      <Field Name="label9" Hidden="true" />
+      <Field Name="MAX_BALANCE" Hidden="true" />
+      <Field Name="number_Balance" Hidden="true" />
+      <Field Name="number_Price" Hidden="true" />
+      <Field Name="order_amount_numeric" Hidden="true" />
+      <Field Name="order_balance_textbox" Hidden="true" />
+      <Field Name="order_id_textbox" Hidden="true" />
+      <Field Name="order_product_textbox" Hidden="true" />
+      <Field Name="pay_button" Hidden="true" />
+      <Field Name="place_order_button" Hidden="true" />
+      <Field Name="register_amount_number" Hidden="true" />
+      <Field Name="register_remItem_button" Hidden="true" />
+      <Field Name="registerTab" Hidden="true" />
+      <Field Name="remove_balance_textbox" Hidden="true" />
+      <Field Name="remove_id_textbox" Hidden="true" />
+      <Field Name="remove_name_textbox" Hidden="true" />
+      <Field Name="remove_price_textbox" Hidden="true" />
+      <Field Name="remove_product_button" Hidden="true" />
+      <Field Name="remove_product_label" Hidden="true" />
+      <Field Name="removeTab" Hidden="true" />
+      <Field Name="restockTab" Hidden="true" />
+      <Field Name="return_balance" Hidden="true" />
+      <Field Name="return_button" Hidden="true" />
+      <Field Name="return_Product_name_box" Hidden="true" />
+      <Field Name="return_tab" Hidden="true" />
+      <Field Name="search_button" Hidden="true" />
+      <Field Name="search_label" Hidden="true" />
+      <Field Name="search_textbox" Hidden="true" />
+      <Field Name="selected_product_label" Hidden="true" />
+      <Field Name="sell_tab" Hidden="true" />
+      <Field Name="stat_combo_ID" Hidden="true" />
+      <Field Name="stat_label_from" Hidden="true" />
+      <Field Name="stat_label_ID" Hidden="true" />
+      <Field Name="stat_label_to" Hidden="true" />
+      <Field Name="stat_tab" Hidden="true" />
+      <Field Name="stat_text_box_display" Hidden="true" />
+      <Field Name="storage_ListBox" Hidden="true" />
+      <Field Name="storage_productName_texbox" Hidden="true" />
+      <Field Name="storageTab" Hidden="true" />
+      <Field Name="sub_registerTab" Hidden="true" />
+      <Field Name="sumLabel" Hidden="true" />
+      <Field Name="tabControl1" Hidden="true" />
+      <Field Name="tabControl2" Hidden="true" />
+      <Field Name="textbox_ID" Hidden="true" />
+      <Field Name="top_all_time" Hidden="true" />
+      <Field Name="top_month" Hidden="true" />
+      <Field Name="top_Specific" Hidden="true" />
+      <Field Name="top_year" Hidden="true" />
+      <Field Name="totalPriceLabel" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>/ziq0YM3sCEoEDBGAhShYGCSghFrgEEmQGoAADaJB/Q=</HashCode>
+      <FileName>MainWindow.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="registerObject" />
+      <Field Name="storageObject" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Store.Product">
+    <Position X="1" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAgAAAQgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Store.ProductFileHandler">
+    <Position X="12" Y="1" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>ProductFileHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Store.Program">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Store.ReceiptHandler">
+    <Position X="12" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgBAAAAEJCAgAAAAAAAAAAAAAEAAAABAAAA=</HashCode>
+      <FileName>ReceiptHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Store.Register">
+    <Position X="8" Y="4" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAgEAAAAADBUAACAEUAQAAAAAAAAAAQAAAACAJA=</HashCode>
+      <FileName>Register.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="SH" />
+      <Field Name="RH" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Store.StatisticHandler">
+    <Position X="12" Y="4.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>StatisticHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Store.StatisticProduct">
+    <Position X="0.75" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAQgAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>StatisticProduct.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Store.Storage">
+    <Position X="8" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAwABAAAAAAAAAAAAABsACAAAAI=</HashCode>
+      <FileName>Storage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="FH" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Store.Properties.Resources" Collapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Store.Properties.Settings" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Inventory>
+	<Item>
+		<Name>Disney Classics</Name>
+		<Count>958</Count>
+		<Price>99,55</Price>
+		<Comment>From MediaStore</Comment>
+		<Artist>?</Artist>
+		<Publisher>?</Publisher>
+		<Genre>?</Genre>
+		<Year>1</Year>
+		<ProductID>1</ProductID>
+	</Item>
+	<Item>
+		<Name>Settlers of Catan</Name>
+		<Count>500</Count>
+		<Price>45,95</Price>
+		<Comment>From MediaStore</Comment>
+		<Artist>?</Artist>
+		<Publisher>?</Publisher>
+		<Genre>?</Genre>
+		<Year>1</Year>
+		<ProductID>2</ProductID>
+	</Item>
+	<Item>
+		<Name>Keyforge</Name>
+		<Count>986</Count>
+		<Price>9,99</Price>
+		<Comment>From MediaStore</Comment>
+		<Artist>?</Artist>
+		<Publisher>?</Publisher>
+		<Genre>?</Genre>
+		<Year>1</Year>
+		<ProductID>3</ProductID>
+	</Item>
+</Inventory>

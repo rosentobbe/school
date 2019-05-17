@@ -1,0 +1,7 @@
+C:\Users\Rosen\source\repos\MediaIntegrator\MediaIntegrator\bin\Debug\MediaIntegrator.exe.config
+C:\Users\Rosen\source\repos\MediaIntegrator\MediaIntegrator\bin\Debug\MediaIntegrator.exe
+C:\Users\Rosen\source\repos\MediaIntegrator\MediaIntegrator\bin\Debug\MediaIntegrator.pdb
+C:\Users\Rosen\source\repos\MediaIntegrator\MediaIntegrator\obj\Debug\MediaIntegrator.csprojAssemblyReference.cache
+C:\Users\Rosen\source\repos\MediaIntegrator\MediaIntegrator\obj\Debug\MediaIntegrator.csproj.CoreCompileInputs.cache
+C:\Users\Rosen\source\repos\MediaIntegrator\MediaIntegrator\obj\Debug\MediaIntegrator.exe
+C:\Users\Rosen\source\repos\MediaIntegrator\MediaIntegrator\obj\Debug\MediaIntegrator.pdb
